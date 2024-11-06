@@ -1,7 +1,11 @@
+# pylint: disable=missing-module-docstring
 #
 # poweredby2dor
 #
 
+# pylint: disable=missing-function-docstring
+# pylint: disable=using-constant-test
+# pylint: disable=invalid-name
 def func_1(a):
     i = 0
     while i < 3:
@@ -15,4 +19,4 @@ def func_1(a):
 
 result = func_1(20)
 print("The result for func_1 is: ", result)
-print(f"func_1 will always return 10 because of the if True condition")
+print("func_1 will always return 10 because of the if True condition")
