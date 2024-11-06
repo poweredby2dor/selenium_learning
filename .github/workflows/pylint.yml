@@ -1,6 +1,6 @@
 name: Lint Code with pylint
 
-on: [push, pull_request]
+on: [push]
 
 jobs:
   # Job 1: Lint only modified files
