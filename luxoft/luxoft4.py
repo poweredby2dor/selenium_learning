@@ -1,6 +1,11 @@
+# pylint: disable=missing-module-docstring
 #
 # poweredby2dor
 #
+
+
+# pylint: disable=missing-class-docstring
+# pylint: disable=missing-function-docstring
 class OOPPillars:
     @staticmethod
     def encapsulation():

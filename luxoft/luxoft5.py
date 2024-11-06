@@ -1,6 +1,11 @@
+# pylint: disable=missing-module-docstring
 #
 # poweredby2dor
 #
+
+
+# pylint: disable=missing-class-docstring
+# pylint: disable=missing-function-docstring
 class ExtraQuestions:
     @staticmethod
     def question2():
@@ -26,7 +31,7 @@ class ExtraQuestions:
         What kind of testing have you performed (brief explanation)?
         Most frequently I have worked in the Functional Testing category, like Smoke and Sanity testing which belong to the System testing branch but I have also performed Performance Testing,
         which belongs to the Non Functional Testing category. Smoke and Sanity tests usually cover testing the functionality of the product as a whole system,
-        test cases here usually are desgined based on how an end user will use the product.
+        test cases here usually are designed based on how an end user will use the product.
         """
 
     @staticmethod
