@@ -13,7 +13,7 @@ result in legal action.
 """
 
 
-def info(msg):
+def info(msg="[i1] No info message given to the logger."):
     """
         Prints message with default font color
 
@@ -24,7 +24,7 @@ def info(msg):
     print(msg)
 
 
-def warning(msg):
+def warning(msg="[W1] No warning message given to the logger."):
     """
         Prints message with yellow font color
 
@@ -35,7 +35,7 @@ def warning(msg):
     print("\033[33m"+msg+"\033[0m")
 
 
-def error(msg):
+def error(msg="[E1] No error message given to the logger."):
     """
         Prints message with red font color
 
@@ -46,7 +46,7 @@ def error(msg):
     print("\033[31m"+msg+"\033[0m")
 
 
-def debug(msg):
+def debug(msg="[D1] No debug message given to the logger."):
     """
         Prints message with magenta font color
 
@@ -57,7 +57,7 @@ def debug(msg):
     print("\033[35m"+msg+"\033[0m")
 
 
-def result(msg):
+def result(msg="[R1] No result message given to the logger."):
     """
         Prints message with blue font color
 
