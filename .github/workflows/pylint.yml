@@ -1,11 +1,11 @@
 name: Lint Code with pylint
 
-on: [push, pull_request]
+on: [push]
 
 jobs:
-  pylint:
+  # Job 1: Lint only modified files
+  pylint-modified:
     runs-on: ubuntu-latest
-
     steps:
       - name: Check out code
         uses: actions/checkout@v3
@@ -15,11 +15,45 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Install dependencies
+      - name: Install pylint
         run: |
           python -m pip install --upgrade pip
           pip install pylint
 
-      - name: Run pylint
+      - name: Get modified files
+        id: modified_files
+        run: |
+          git fetch --depth=2
+          git diff --name-only HEAD^ HEAD > modified_files.txt
+          cat modified_files.txt
+
+      - name: Run pylint on modified files
+        if: success() && steps.modified_files.outputs.files != ''
+        run: |
+          files=$(cat modified_files.txt | grep '\.py$' | tr '\n' ' ')
+          if [ "$files" != "" ]; then
+            pylint $files
+          else
+            echo "No modified Python files to lint."
+          fi
+
+  # Job 2: Lint the entire repository
+  pylint-all:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.x'
+
+      - name: Install pylint
+        run: |
+          python -m pip install --upgrade pip
+          pip install pylint
+
+      - name: Run pylint on all files
         run: |
           pylint **/*.py
