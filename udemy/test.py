@@ -13,5 +13,16 @@ result in legal action.
 """
 
 import time
+import logger
+
+logger.info("test")
+
+logger.warning("warning")
+
+logger.error("error")
+
+logger.debug("debug")
+
+logger.result("result")
 
 time.sleep(1)

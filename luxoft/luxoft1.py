@@ -1,7 +1,9 @@
+# pylint: disable=missing-module-docstring
 #
 # poweredby2dor
 #
 import json
+# pylint: disable=missing-function-docstring
 
 
 def check_order(json_input, batter_id, topping_id):
@@ -41,6 +43,7 @@ def check_order(json_input, batter_id, topping_id):
 
 
 # Example usage:
+# pylint: disable=invalid-name
 json_response = '''
 {
     "batters": {
