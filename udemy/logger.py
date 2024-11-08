@@ -15,7 +15,7 @@ result in legal action.
 import os
 
 
-def logger(log, msg, send_to_console):
+def logger(log, msg, send_to_console, keep_line=False):
     """
         Logs messages to console and log file
         log (str): input message
@@ -23,10 +23,16 @@ def logger(log, msg, send_to_console):
         return_type: none
     """
     if send_to_console:
-        print(msg)
+        if keep_line:
+            print(msg, end=" ")
+        else:
+            print(msg)
 
     with open(os.path.join(os.getcwd(), os.pardir, "logs", "execution.log"), 'a', encoding="utf-8") as file:
-        file.write(log+"\n")
+        if keep_line:
+            file.write(log)
+        else:
+            file.write(log + "\n")
 
 
 def info(log="[i1] No info message given to the logger."):
