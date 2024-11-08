@@ -12,60 +12,73 @@ result in legal action.
 ******************************************************************************
 """
 
+import os
 
-def info(msg="[i1] No info message given to the logger."):
+
+def logger(log, msg, send_to_console):
+    """
+        Logs messages to console and log file
+        log (str): input message
+        msg (str): input message for console
+        return_type: none
+    """
+    if send_to_console:
+        print(msg)
+
+    with open(os.path.join(os.getcwd(), os.pardir, "logs", "execution.log"), 'a', encoding="utf-8") as file:
+        file.write(log+"\n")
+
+
+def info(log="[i1] No info message given to the logger."):
     """
         Prints message with default font color
-
-        msg (str): input message
-
+        log (str): input message
         return_type: none
-        """
-    print(msg)
+    """
+
+    logger(log, log, True)
 
 
-def warning(msg="[W1] No warning message given to the logger."):
+def warning(log="[W1] No warning message given to the logger."):
     """
         Prints message with yellow font color
-
         msg (str): input message
-
         return_type: none
-        """
-    print("\033[33m"+msg+"\033[0m")
+    """
+
+    msg = "\033[33m"+log+"\033[0m"
+    logger(log, msg, True)
 
 
-def error(msg="[E1] No error message given to the logger."):
+def error(log="[E1] No error message given to the logger."):
     """
         Prints message with red font color
-
         msg (str): input message
-
         return_type: none
-        """
-    print("\033[31m"+msg+"\033[0m")
+    """
+
+    msg = "\033[31m"+log+"\033[0m"
+    logger(log, msg, True)
 
 
-def debug(msg="[D1] No debug message given to the logger."):
+def debug(log="[D1] No debug message given to the logger."):
     """
         Prints message with magenta font color
-
         msg (str): input message
-
         return_type: none
-        """
-    print("\033[35m"+msg+"\033[0m")
+    """
+    msg = "\033[35m"+log+"\033[0m"
+    logger(log, msg, False)
 
 
-def result(msg="[R1] No result message given to the logger."):
+def result(log="[R1] No result message given to the logger."):
     """
         Prints message with blue font color
-
         msg (str): input message
-
         return_type: none
-        """
-    print("\033[34m"+msg+"\033[0m")
+    """
+    msg = "\033[34m"+log+"\033[0m"
+    logger(log, msg, True)
 
 
 # pylint: disable=pointless-string-statement
